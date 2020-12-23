@@ -6,7 +6,11 @@ public class MakeStars {
       String line = in.nextLine();
       Scanner n = new Scanner(line);
       while(n.hasNext()) {
-        System.out.println(n.next());
+        String word = n.next();
+        for(int i = 0; i<word.length();i++) {
+          System.out.print("*");
+        }
+        System.out.print(" ");
       }
     }
   }
