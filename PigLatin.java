@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.*;
+
 public class PigLatin {
   public static String pigLatinSimple(String s) {
     String ls = s.toLowerCase();
@@ -14,7 +16,7 @@ public class PigLatin {
   public static String pigLatin(String s) {
     String ls = s.toLowerCase();
     ArrayList<String> diagraphs = new ArrayList<String>(Arrays.asList(new String[]{"bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr"}));
-    if(diagraphs.contains(ls.substring(0,2))) {
+    if(ls.length()>1 && diagraphs.contains(ls.substring(0,2))) {
       return ls.substring(2) + ls.substring(0,2) + "ay";
     }
     else {
@@ -34,6 +36,19 @@ public class PigLatin {
     else {
       String sl = s.substring(0,ls.length()-1);
       return pigLatin(sl) + ls.substring(ls.length()-1);
+    }
+  }
+  public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    while(in.hasNext()) {
+      String line = in.nextLine();
+      Scanner n = new Scanner(line);
+      while(n.hasNext()) {
+        String word = n.next();
+        System.out.print(pigLatinBest(word));
+        System.out.print(" ");
+      }
+      System.out.println();
     }
   }
 }
